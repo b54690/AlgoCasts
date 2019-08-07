@@ -7,6 +7,25 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+// used to do a boolean test on every element in an array, if all tests are true then overall outcome if true
+function palindrome(str) {
+    return str.split('').every((char, i) => {
+        return char === str[str.length - i - 1]
+    })
+}
+palindrome('abba');
+
+// function palindrome(str) {
+//     const reversed = str.split('').reduce((reversed, char) => char + reversed, '');
+//     return reversed === str;
+// }
+
+/**
+ * @return {boolean}
+ */
+function Palindrome(str) {
+    const reversed = str.replace(/ /g,'').split('').reduce((reversed, char) => char + reversed, '');
+    return reversed === str.replace(/ /g,'');
+}
 
 module.exports = palindrome;
